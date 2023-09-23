@@ -3,7 +3,10 @@ RewriteEngine On
 
 RewriteBase /skeleton-php/public
 
+#if whatever is typed in the url is a valid filename then it should just load that file 
 RewriteCond %{REQUEST_FILENAME} !-d
+
+#if whatever is typed in the url is a valid folder/directory, then it should just load that directory
 RewriteCond %{REQUEST_FILENAME} !-f 
 
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
